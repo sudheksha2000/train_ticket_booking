@@ -72,20 +72,6 @@ void user_derived::cancel_ticket(user_derived* user)
 				ptr->status="Cancelled";
 				cout<<endl;
 				user->ticket_far_red(ptr->get_fare());
-				if(ptr->get_seat_ptr()->get_type()=="SLEEPER")
-				{
-					if(ptr->get_train_ptr()->get_passenger_ptr_wl_sl().size()!=0)
-					{
-						//function
-					}
-				}
-				else
-				{
-					if(ptr->get_train_ptr()->get_passenger_ptr_wl_2s().size()!=0)
-					{
-						//function
-					}
-				}
 			}
 		}
 		count++;

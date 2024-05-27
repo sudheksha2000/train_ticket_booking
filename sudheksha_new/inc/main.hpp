@@ -8,7 +8,6 @@
 #include "passenger.hpp"
 #include "ticket.hpp"
 
-//chenged binary_tree tree
 binary_tree_class *tree;
 vector <train *> journey;
 

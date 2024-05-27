@@ -1,5 +1,5 @@
 #include "train.hpp"
-//main to train.cpp
+
 extern month * schedule;
 #define VAL 0x00
 
@@ -36,7 +36,7 @@ int train :: middle_station()
 	{
 		station * ptr=new station(id);
 		station_ptr.push_back(ptr);
-		id++;			                              //checked
+		id++;			   
 	}
 	return count;
 }
@@ -89,7 +89,6 @@ coach :: coach(int type_number,int check,bool print)
 	{
 		static int num = 1;
 		coach_number = "s" + to_string(num);
-		// cout<<".............."<<coach_number<<endl;
 		num++;
 	}
 	else
@@ -103,13 +102,13 @@ coach :: coach(int type_number,int check,bool print)
 	{
 		this->type="SECOND SITTING";
 		seat_count=108;
-		seat_ptr_2s = new seat_struct_2s;   //changed
+		seat_ptr_2s = new seat_struct_2s;
 	}
 	else
 	{
 		this->type="SLEEPER";
 		seat_count=72;
-		seat_ptr_sl = new seat_struct_sl;        //changed
+		seat_ptr_sl = new seat_struct_sl;
 	}
 	while(seat_count)
 	{
@@ -128,27 +127,22 @@ void coach :: seat_alloc(int seat_no,int check)
 		if(seat_no==1 or seat_no==4)
 		{
 			seat_ptr_sl->lower.push_back(ptr);
-			// cout<<"lower "<<seat_ptr_sl->lower[0]->get_type()<<endl;
 		}
 		else if(seat_no==2 or seat_no==5)
 		{
 			seat_ptr_sl->middle.push_back(ptr);
-			// cout<<"middle "<<seat_ptr_sl->middle[0]->get_type()<<endl;
 		}
 		else if(seat_no==3 or seat_no==6)
 		{
 			seat_ptr_sl->upper.push_back(ptr);
-			// cout<<"upper "<<seat_ptr_sl->upper[0]->get_type()<<endl;
 		}
 		else if(seat_no==7)
 		{
 			seat_ptr_sl->s_lower.push_back(ptr);
-			// cout<<"side lower "<<seat_ptr_sl->s_lower[0]->get_type()<<endl;
 		}
 		else
 		{
 			seat_ptr_sl->s_upper.push_back(ptr);
-			// cout<<"side upper "<<seat_ptr_sl->s_upper[0]->get_type()<<endl;
 		}
 	}
 	else
@@ -178,7 +172,6 @@ seat :: seat(int seat_no,int check,string type)
 	this->start = 1;
 	this->end = check;
 	this->type = type;
-	// cout<<"coming seat type........."<<this->type<<endl;
 	this->available.push_back(avail);
 }
 
@@ -280,7 +273,7 @@ coach :: coach(const coach &obj)
 			seat_ptr_sl->s_upper.push_back(ptr1);
 		}
 	}
-	// cout<<"available "<<seat_ptr_2s->aisle[0]->get_available().size();
+
 };
 
 
@@ -325,7 +318,7 @@ void train_selection(user_derived *val)
 		{
 			if(ptr2->get_train_no()==train_no)
 			{
-				// system("clear");
+				system("clear");
 				cout<<ptr2->get_train_name()<<"("<<ptr2->get_train_no()<<")"<<endl;
 				cout<<endl;
 				ptr2->train_availablity(from,to);
@@ -413,7 +406,7 @@ bool train :: filter_src_des(string from, string to)
 			return true;
 		}
 	}
-	return false;  //big
+	return false;
 }
 
 
@@ -506,11 +499,6 @@ bool train::seat_check(seat * ptr1,string from, string to)
 			{
 				return 1;
 			}
-		}
-		cout<<"total size ........."<<ptr1->available.size()<<endl;
-		for(auto ptr2:ptr1->available)
-		{
-			cout<<"start and end "<<ptr2->start<<" "<<ptr2->end<<endl;
 		}
 		return 0;
 	}
@@ -773,11 +761,9 @@ void seat::change_available(seat * ptr,string from, string to, train* train_ptr1
 			
 		}
 	}
-	// cout<<"Starting and ending "<<from_no<<" "<<to_no<<endl;
-	// for(auto ptr : available)
 	available_struct* next = new available_struct;
 	next = available[0];
-	// auto next = available[0];
+
 
 	for(int i=0;i<available.size();i++)
 	{
@@ -788,7 +774,6 @@ void seat::change_available(seat * ptr,string from, string to, train* train_ptr1
 		if(from_no>start && to_no<end)
 		{
 			struct available_struct * test=new available_struct;
-			// ptr->next=test;              //doubt
 			test->end=available[i]->end;
 			available[i]->end=from_no;
 			test->start=to_no;

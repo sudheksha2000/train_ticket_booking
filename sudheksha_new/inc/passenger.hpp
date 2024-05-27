@@ -19,7 +19,6 @@ public:
 	}
 	passenger(string name,string gender,int age);
 	passenger(string name,string gender,int age,string pref);
-	// friend void train::proceed(user_derived * user,vector <passenger *>temp,train * train_ptr1,string type,int fare,string from,string to);
 	~passenger();
 
 };

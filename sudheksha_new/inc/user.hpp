@@ -48,7 +48,7 @@ class user_derived : public user_base
 	struct  passenger_list * list;
 	vector <ticket *> booked;
 	int wallet;
-public :                               // syntax changed
+public :      
 	user_derived(string name,string gender,int  age,struct passenger_list *);
 	~user_derived();
 	int get_id()
@@ -77,10 +77,9 @@ public :                               // syntax changed
 	void ticket_far_red(int amount);
 	void ticket_fare_red(int val)
 	{
-		wallet-=val;                       // name changed 
+		wallet-=val;
 	}
 	void cancel_ticket(user_derived*);
-	void cancel_waiting_list();
 };
 
 user_derived * create_user_fileio(ifstream &in);

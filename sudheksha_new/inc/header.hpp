@@ -22,11 +22,8 @@ class seat;
 class ticket;
 class month;
 class day;
-template <class x > x get_input(x a);      //class return type
+template <class x > x get_input(x a);
  string upper(string);
  string center_align(const string str, int width);
- 
- 
- //int global=100000;
 
-#endif             //unterminated statement   
+#endif  
