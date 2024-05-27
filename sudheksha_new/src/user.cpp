@@ -53,6 +53,12 @@ void user_derived::cancel_ticket(user_derived* user)
 {
 	int number=1;
 	int count=1;
+	if(!user->booked.size())
+	{
+		cout<<endl;
+		cout<<"NO TICKETS"<<endl;
+		return;
+	}
 	for(auto ptr : user->booked)
 	{
 		cout<< "S_No  :  "<<number<<endl;
